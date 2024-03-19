@@ -17,11 +17,16 @@ void main()
 		decimal /= 2;  //убираем младший двоичный разряд из числа
 	}
 #endif // VAR_1
+
 	int i = 0;
-	for (; decimal; bin[i++] = decimal % 2, decimal /= 2);
+	//for (; decimal; bin[i++] = decimal % 2, decimal /= 2);
+	for(;decimal; bin[i++] = decimal & 1, decimal >>= 1);
+
 	for (--i; i >= 0; i--)
 	{
 		cout << bin[i];
+		if ((i % 8) == 0) cout << " ";
+		if ((i % 4) == 0) cout << " ";
 	}
 	cout << endl;
 }
